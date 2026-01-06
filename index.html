@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expense Tracker (Offline)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Expense Tracker</h1>
+    <button id="exportBtn">Export JSON</button>
+    <input type="file" id="importFile" accept=".json" />
+  </header>
+
+  <section id="summary">
+    <div>Monthly Total: <strong id="monthlyTotal">₹0</strong></div>
+    <div>Income: <strong id="incomeTotal">₹0</strong></div>
+    <div>Expense: <strong id="expenseTotal">₹0</strong></div>
+  </section>
+
+  <section id="form">
+    <input type="date" id="date" />
+    <select id="type">
+      <option value="expense">Expense</option>
+      <option value="income">Income</option>
+    </select>
+    <input type="text" id="category" placeholder="Category (e.g., Food)" />
+    <input type="number" id="amount" placeholder="Amount" step="0.01" />
+    <input type="text" id="notes" placeholder="Notes" />
+    <button id="addBtn">Add</button>
+  </section>
+
+  <section id="list">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th><th>Type</th><th>Category</th><th>Amount</th><th>Notes</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Register service worker (optional; enables offline caching if sw.js exists)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>
