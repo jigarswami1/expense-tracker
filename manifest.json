@@ -1,0 +1,10 @@
+
+{
+  "name": "Expense Tracker (Offline)",
+  "short_name": "Expenses",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2f855a",
+  "icons": []
+}
